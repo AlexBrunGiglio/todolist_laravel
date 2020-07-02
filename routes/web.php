@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'TaskController@index');
+Route::get('/create', 'TaskController@create');
+Route::get('/edit', 'TaskController@editTask');
+Route::get('/delete', 'TaskController@deleteTask');
