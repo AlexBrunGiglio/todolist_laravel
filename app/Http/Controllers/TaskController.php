@@ -15,7 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $tasks = Task::get();
+        return view('welcome', compact('tasks'));
     }
 
     /**
@@ -35,17 +36,17 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $request->validate([
+        $attributes = request()->validate([
             'title' => 'required',
             'description' => 'required',
             'task' => 'required',
         ]);
         
-        Task::create($request->all());
-        
-        return redirect()->route('/')->whith('success, Task created successfully !');
+        $task = Task::create($attributes);
+        // dd($task);
+        return redirect()->route('tasks')->with('success, Task created successfully !');
     }
 
     public function editTask()
