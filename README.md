@@ -12,3 +12,5 @@
 # Features : 
 
 - Affichage Front
+- Début CRUD : 
+    - CREATE
