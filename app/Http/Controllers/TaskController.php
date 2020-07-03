@@ -49,6 +49,38 @@ class TaskController extends Controller
         return redirect()->route('tasks')->with('success, Task created successfully !');
     }
 
+    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id) 
+    {    
+        $task = Task::findOrFail($id);
+        return view('edit', compact('task'));
+    } 
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id)
+    {
+        $attributes = request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'task' => 'required',
+        ]);
+
+        $task = Task::findOrFail($id)::update($attributes);
+        return redirect()->route('edit')->width('success');
+    }
+
     public function editTask()
     {
         return view('edit');

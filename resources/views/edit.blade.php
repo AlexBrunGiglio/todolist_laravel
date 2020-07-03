@@ -7,25 +7,26 @@
         <h1>Choisir une tâche à modifier :</h1>
     </div>
     <div class="">
-        <form class="mt-4">
+        <form class="mt-4" method="POST" action="{{ url('create/{id}') }}">
+            @csrf
             <div class="form-group">
                 <label for="titleTask">Nom de la tâche :</label>
-                <input type="text" class="form-control" id="titleTask" placeholder="Nom de la tâche">
+                <input type="text" class="form-control" id="titleTask" name="title" placeholder="Nom de la tâche" value="{{ $task->title }}">
             </div>
             <div class="form-group">
                 <label for="descpTask">Description de la tâche :</label>
-                <input type="text" class="form-control" id="descpTask" placeholder="Description">
+                <input type="text" class="form-control" id="descpTask" name="description" placeholder="Description" value="{{ $task->description }}">
             </div>
             <div class="form-group">
                 <label for="featureTask">Fonctionnalités listées :</label>
-                <textarea class="form-control" id="featureTask" placeholder="Fonctionnalités"></textarea>
+                <textarea class="form-control" id="featureTask" name="task" placeholder="Fonctionnalités" aria-valuetext="{{ $task->task }}"></textarea>
             </div>
             <div class="form-group">
                 <label for="featureTask">Suppression de la tâche :</label>
-                <button type="submit" class="btn btn-danger ml-5">Supprimer tâche</button>
+                {{-- <button type="submit" class="btn btn-danger ml-5">Supprimer tâche</button> --}}
             </div>
             <button type="submit" class="btn float-right btn-warning">Enregistrer</button>
-      </form>
+        </form>
     </div>
 </div>
 @endsection

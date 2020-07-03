@@ -11,9 +11,10 @@
         <div class="col-sm-4 mt-2">
             <div class="card">
                 <div class="card-body left-card">
-                    <a type="button" class="btn btn-warning float-right btn-sm" href="{{ url('edit') }}">Modifier tâche</a>
+                    <a type="button" class="btn btn-warning float-right btn-sm" href="{{ url('edit/'.$task->id) }}">Modifier tâche</a>
                     <h4 class="card-title">{{ $task->title }}</h4>
                     <p class="card-text">{{ $task->description }}</p>
+                    <p>{{ $task->id }} </p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -22,18 +23,6 @@
                             <label class="custom-control-label" for="check1">{{ $task->task }}</label>
                         </div>
                     </li>
-                    {{-- <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="check2">
-                            <label class="custom-control-label" for="check2">Feature 2</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="check3">
-                            <label class="custom-control-label" for="check3">Feature 3</label>
-                        </div>
-                    </li> --}}
                 </ul>
             </div>
         </div>
