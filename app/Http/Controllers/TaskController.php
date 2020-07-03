@@ -30,7 +30,7 @@ class TaskController extends Controller
 
     }
 
-       /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -74,19 +74,24 @@ class TaskController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'description' => 'required',
-            'task' => 'required',
+            // 'task' => 'required',
         ]);
 
-        $task = Task::findOrFail($id)::update($attributes);
-        return redirect()->route('edit')->width('success');
+        $task = Task::findOrFail($id);
+        $task->update($attributes);
+        return redirect('edit/'.$task->id);
     }
 
-    public function editTask()
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        return view('edit');
-    }
-    public function deleteTask()
-    {
-        return view('delete');
+        $task = Task::findOrFail($id);
+        $task->delete();
+        return redirect()->route('tasks');
     }
 }
