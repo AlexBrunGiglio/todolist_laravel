@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Feature;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -15,7 +16,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::get();
+        $tasks = Task::with(['features'])->get();
         return view('welcome', compact('tasks'));
     }
 
@@ -41,17 +42,16 @@ class TaskController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'description' => 'required',
-            'task' => 'required',
         ]);
         
         $task = Task::create($attributes);
-        // dd($task);
+        
         return redirect()->route('tasks')->with('success, Task created successfully !');
     }
 
     
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resournce.
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response

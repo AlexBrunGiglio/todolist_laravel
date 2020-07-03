@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ Route::get('edit/{id}', 'TaskController@edit');
 Route::post('edit/{id}','TaskController@update');
 Route::delete('edit/{id}', 'TaskController@destroy');
 Route::get('delete', 'TaskController@deleteTask');
+
+Route::post('features/create', 'FeatureController@store');

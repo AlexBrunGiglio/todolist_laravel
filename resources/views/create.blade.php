@@ -15,14 +15,15 @@
             </div>
             <div class="form-group">
                 <label for="descpTask">Décrivez la tâche :</label>
-                <input type="text" class="form-control" id="descpTask" name="description" placeholder="Description">
-            </div>
+                <textarea class="form-control" id="descpTask" name="description" placeholder="Description"></textarea>
+                {{-- <input type="text" class="form-control" id="descpTask" name="description" placeholder="Description"> --}}
+            {{-- </div>
             <div class="form-group">
                 <label for="featureTask">Listez vos fonctionnalités :</label>
-                <textarea class="form-control" id="featureTask" name="task" placeholder="Fonctionnalités"></textarea>
-            </div>
+                <textarea class="form-control" id="featureTask" name="feature" placeholder="Fonctionnalités"></textarea>
+            </div> --}}
             <button type="submit" class="btn float-right btn-primary">Enregistrer</button>
-      </form>
+        </form>
     </div>
 </div>
 @endsection

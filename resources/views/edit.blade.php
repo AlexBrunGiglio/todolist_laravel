@@ -15,12 +15,13 @@
             </div>
             <div class="form-group">
                 <label for="descpTask">Description de la tâche :</label>
-                <input type="text" class="form-control" id="descpTask" name="description" placeholder="Description" value="{{ $task->description }}">
+                <textarea class="form-control" id="descpTask" name="description" placeholder="Description">{{ $task->description }}</textarea>
+                {{-- <input type="text" class="form-control" id="descpTask" name="description" placeholder="Description" value="{{ $task->description }}"> --}}
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="featureTask">Fonctionnalités listées :</label>
                 <textarea class="form-control" id="featureTask" name="task" placeholder="Fonctionnalités" aria-valuetext="{{ $task->task }}"></textarea>
-            </div>
+            </div> --}}
             <button type="submit" class="btn float-right btn-warning">Enregistrer</button>
         </form>
         <form action="{{ url('edit/'.$task->id) }}" method="POST">
