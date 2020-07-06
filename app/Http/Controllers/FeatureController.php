@@ -30,4 +30,17 @@ class FeatureController extends Controller
         return redirect()->route('tasks');
     }
 
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $features = Feature::find($id);
+        $features->delete();
+        return redirect()->route('tasks');
+    }
+
 }

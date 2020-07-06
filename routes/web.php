@@ -24,3 +24,4 @@ Route::delete('edit/{id}', 'TaskController@destroy');
 Route::get('delete', 'TaskController@deleteTask');
 
 Route::post('features/create', 'FeatureController@store');
+Route::delete('features/delete/{id}', 'FeatureController@destroy');
