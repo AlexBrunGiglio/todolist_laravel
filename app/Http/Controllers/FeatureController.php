@@ -30,6 +30,37 @@ class FeatureController extends Controller
         return redirect()->route('tasks');
     }
 
+    /**
+     * Show the form for editing the specified resournce.
+     *
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id) 
+    {    
+        $features = Feature::findOrFail($id);
+        return view('editFeature', compact('features'));
+    } 
+
+        /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id)
+    {
+        $attributes = request()->validate([
+            'name' => 'required',
+        ]);
+
+        $features = Feature::findOrFail($id);
+        $features->update($attributes);
+        return redirect()->route('tasks');
+    }
+
+
         /**
      * Remove the specified resource from storage.
      *
@@ -43,4 +74,14 @@ class FeatureController extends Controller
         return redirect()->route('tasks');
     }
 
+    public function checkboxState($id){
+        //
+        $attributes = request()->validate([
+            'etat' => 'required',
+        ]);
+        $features = Feature::find($id);
+        $features->etat=request('etat');
+        
+        $features->save();
+    }
 }

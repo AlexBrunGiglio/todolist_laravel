@@ -74,7 +74,6 @@ class TaskController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'description' => 'required',
-            // 'task' => 'required',
         ]);
 
         $task = Task::findOrFail($id);

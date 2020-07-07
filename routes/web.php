@@ -23,5 +23,9 @@ Route::post('edit/{id}','TaskController@update');
 Route::delete('edit/{id}', 'TaskController@destroy');
 Route::get('delete', 'TaskController@deleteTask');
 
+Route::post('/', 'HomeController@post');
+
 Route::post('features/create', 'FeatureController@store');
 Route::delete('features/delete/{id}', 'FeatureController@destroy');
+Route::get('features/edit/{id}', 'FeatureController@edit');
+Route::post('features/edit/{id}', 'FeatureController@update');
