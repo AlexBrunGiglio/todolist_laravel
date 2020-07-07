@@ -1,8 +1,6 @@
 $("input[type='checkbox']").on("change",function(evt){
     var etat = $(this).is(':checked');
-    console.log(etat);
     var idFeature = $(this).attr("id");
-    console.log(idFeature);
     var url='/api/features/'+idFeature;
 
     $.ajax({
@@ -14,7 +12,6 @@ $("input[type='checkbox']").on("change",function(evt){
         //
     })
     .fail(function(){
-        alert("Error");
+        //
     })
 });
-

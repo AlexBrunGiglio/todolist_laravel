@@ -81,7 +81,6 @@ class FeatureController extends Controller
         ]);
         $features = Feature::find($id);
         $features->etat=request('etat');
-        
         $features->save();
     }
 }

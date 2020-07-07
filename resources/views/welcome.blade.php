@@ -19,17 +19,19 @@
                     </a>
                     <h4 class="card-title">{{ $task->title }}</h4>
                     <p class="card-text">{{ $task->description }}</p>
-                    {{-- <p>Id tâche :{{ $task->id }} </p> --}}
+                    <div class="progress">
+                        <div class="progress-bar bg-success w-{{ $task->div }}" role="progressbar" aria-valuenow="{{ $task->div }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
                 <ul class="list-group list-group-flush">
                     @foreach ($task->features as $feature)
                     <li class="list-group-item">
-                        <div class="custom-control custom-checkbox">
+                        <div id="tache" class="custom-control custom-checkbox">
                                 @if ($feature->etat)    
-                                <input type="checkbox" class="custom-control-input" checked id="{{ $feature->id }}">
+                                <input type="checkbox" onClick="window.location.reload();" name="{{ $task->id }}" class="custom-control-input" checked id="{{ $feature->id }}">
                                 <label class="custom-control-label" for="{{ $feature->id }}">{{ $feature->name }}</label>
                                 @else
-                                <input type="checkbox" class="custom-control-input" id="{{ $feature->id }}">
+                                <input type="checkbox" onClick="window.location.reload();" name="{{ $task->id }}" class="custom-control-input" id="{{ $feature->id }}">
                                 <label class="custom-control-label" for="{{ $feature->id }}">{{ $feature->name }}</label>
                                 @endif
                             <div class="float-right">

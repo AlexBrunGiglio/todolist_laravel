@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Task;
 use App\Feature;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class TaskController extends Controller
 {
@@ -17,6 +18,19 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::with(['features'])->get();
+        foreach ($tasks as $task){
+            // $task->features->count() $task->features->where('etat',true)->count();
+            if ($task->features->count() == 0) {
+                $task->div = 0;
+            }
+            else {
+                $task->div = ($task->features->where('etat', true)->count() / $task->features->count())*100;             
+            }
+        }
+        
+        // echo $taskCount->features_count;
+        // $featuresCount = Task::withCount('features')->where('etat', '1')->get();
+
         return view('welcome', compact('tasks'));
     }
 
@@ -93,4 +107,5 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route('tasks');
     }
+
 }
