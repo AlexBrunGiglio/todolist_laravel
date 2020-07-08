@@ -9,8 +9,30 @@
 
 ## To Do List with Laravel
 
-# Features : 
+Veuillez à bien posséder `composer` et `laravel` sur la machine avec laquelle vous allez cloner le projet. 
 
-- Affichage Front
-- Début CRUD : 
+Installation des nodes_modules : 
+`npm install` ou `npm i`
+
+Pour démarrer un serveur : 
+`php artisan serve`
+
+# Fonctionnalité du projet : 
+
+- Affichage Front-end (blade.php)
+
+- CRUD Cards : 
     - CREATE
+    - UPDATE
+    - DELETE
+
+- CRUD Features :
+    - CREATE
+    - UPDATE
+    - DELETE
+
+- Affichage pourcentage d'accomplissement des tâches :
+    - Léger bug sur le refresh on click
+
+=> Refonte du Front-end : 
+    Passage à Angular 10(en cours)
