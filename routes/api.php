@@ -22,6 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('features/{id}', 'FeatureController@checkboxState');
-Route::get('/task', function(){
-    return Task::all();
-});
+Route::get('/task', 'TaskController@api');
+Route::put('edit/{id}', 'TaskController@updateApi');
+Route::delete('delete/{id}', 'TaskController@destroyApi');

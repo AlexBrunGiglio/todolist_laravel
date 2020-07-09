@@ -108,4 +108,28 @@ class TaskController extends Controller
         return redirect()->route('tasks');
     }
 
+    public function api()
+    {
+        $tasks = Task::with(['features'])->get()->toJson(JSON_PRETTY_PRINT);
+        return $tasks;
+    }
+
+    public function updateApi($id)
+    {
+        $attributes = request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $task = Task::findOrFail($id);
+        $task->update($attributes);
+        $task->save();
+    }
+
+    public function destroyApi($id)
+    {
+        $task = Task::findOrFail($id);
+        $task->delete();
+    }
+
 }
