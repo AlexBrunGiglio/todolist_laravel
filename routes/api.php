@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Resources\Task as TaskResource;
+use App\Task;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,3 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('features/{id}', 'FeatureController@checkboxState');
+Route::get('/task', function(){
+    return Task::all();
+});
